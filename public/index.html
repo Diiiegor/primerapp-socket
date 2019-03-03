@@ -32,6 +32,11 @@
         mensaje: 'hola mundo'
     });
 
+    //escucho informacion del server
+    socket.on('enviarMensaje',(mensaje)=>{
+        console.log(mensaje)
+    })
+
 </script>
 
 </html>

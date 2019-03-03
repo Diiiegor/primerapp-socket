@@ -23,7 +23,12 @@ io.on('connection', (client) => {
 
     client.on('enviarMensaje',(mensaje)=>{
         console.log(mensaje)
-    })
+    });
+
+    client.emit('enviarMensaje',{
+        usuario: 'admin',
+        mensaje: 'bienvenido a esta aplicacion'
+    });
 
 });
 
