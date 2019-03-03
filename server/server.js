@@ -15,7 +15,16 @@ app.use(express.static(publicPath));
 let io = socketio(server);
 
 io.on('connection', (client) => {
-    console.log('Nuevo usuario conectado')
+    console.log('Nuevo usuario conectado');
+
+    client.on('disconnect',()=>{
+        console.log('usuario desconectado')
+    });
+
+    client.on('enviarMensaje',(mensaje)=>{
+        console.log(mensaje)
+    })
+
 });
 
 server.listen(port, (err) => {
