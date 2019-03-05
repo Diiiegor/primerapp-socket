@@ -30,6 +30,8 @@
     socket.emit('enviarMensaje', {
         usuario:'diego',
         mensaje: 'hola mundo'
+    },function (data) {
+        console.log(data.respuesta)
     });
 
     //escucho informacion del server

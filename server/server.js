@@ -21,8 +21,19 @@ io.on('connection', (client) => {
         console.log('usuario desconectado')
     });
 
-    client.on('enviarMensaje',(mensaje)=>{
-        console.log(mensaje)
+    client.on('enviarMensaje',(mensaje,callback)=>{
+        //console.log(mensaje);
+        
+        if (mensaje.usuario) {
+            callback({
+                respuesta:'Todo ok'
+            })
+        }
+        else {
+            callback({
+                respuesta:'Todo salio mal...'
+            })
+        }
     });
 
     client.emit('enviarMensaje',{
